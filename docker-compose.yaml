@@ -1,0 +1,117 @@
+services:
+  # The Collector: Receives traces from your microservices
+  otel-collector:
+    image: otel/opentelemetry-collector:latest
+    command: ["--config=/etc/otel-config.yaml"]
+    volumes:
+      - ./otel-config.yaml:/etc/otel-config.yaml
+    ports:
+      - "4318:4318" # OTLP HTTP receiver
+      - "4317:4317" # OTLP gRPC receiver
+
+  # The Backend: Visualizes the traces
+  jaeger:
+    image: jaegertracing/all-in-one:latest
+    ports:
+      - "16686:16686" # UI
+      - "14250:14250" # Jaeger gRPC
+  consul:
+    image: hashicorp/consul:latest
+    container_name: consul-server
+    ports:
+      - "8500:8500"      # HTTP API and Web UI
+      - "8600:8600/udp"  # DNS server
+    environment:
+      - CONSUL_BIND_INTERFACE=eth0
+    volumes:
+      - consul_data:/consul/data
+    restart: always
+  auth-db:
+    image: postgres
+    restart: always
+    # set shared memory limit when using docker compose
+    shm_size: 128mb
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: auth-db
+
+  leave-manager-db:
+    image: postgres
+    restart: always
+    # set shared memory limit when using docker compose
+    shm_size: 128mb
+    ports:
+      - "5434:5432"
+    environment:
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: lb-db
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+  rabbitmq: 
+    image: rabbitmq:3-management
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest
+    healthcheck:
+      test: ["CMD", "rabbitmq-diagnostics", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  api-gateway:
+    build:
+      context: .
+      dockerfile: apps/api-gateway/Dockerfile
+    ports:
+      - '3002:3000'
+    environment:
+      PORT: 3000
+      CONSUL_HOST: consul
+    depends_on:
+      - consul
+
+  auth-microservice:
+    build:
+      context: .
+      dockerfile: apps/auth-microservice/Dockerfile
+    ports:
+      - '3001:3000'
+    environment:
+      DATABASE_URL: postgresql://postgres:password@auth-db:5432/auth-db
+      CONSUL_HOST: consul
+    depends_on:
+      - auth-db
+      - consul
+
+  leave-manager-microservice:
+    build:
+      context: .
+      dockerfile: apps/leave-manager-microservice/Dockerfile
+    # ports:
+    #   - '3003:3000'
+    environment:
+      DATABASE_URL: postgresql://postgres:password@leave-manager-db:5432/lb-db
+      CONSUL_HOST: consul
+      AUTH_JWKS_URL: http://auth-microservice:3000/auth/jwks.json
+      RABBITMQ_URL: amqp://guest:guest@rabbitmq:5672
+    depends_on:
+      - leave-manager-db
+      - consul
+      - rabbitmq
+
+  notifications-microservice:
+    build:
+      context: .
+      dockerfile: apps/notifications-microservice/Dockerfile
+
+volumes:
+  consul_data:

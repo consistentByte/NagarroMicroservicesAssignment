@@ -1,0 +1,70 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Get a free hosted Postgres database in seconds: `npx create-db`
+
+generator client {
+  provider = "prisma-client-js"
+  // output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Employee {
+  employeeId String         @id // Removed @default(cuid()) for manual control
+  name       String
+  role       EmployeeRole
+  leaves     LeaveBalance[]
+
+  reportingManagerId String?
+  reportingManager   Employee?  @relation("EmployeeReporting", fields: [reportingManagerId], references: [employeeId])
+  subordinates       Employee[] @relation("EmployeeReporting")
+
+  // Relations for Leave Requests
+  leaveRequests LeaveRequest[] // For the employee to see their own history
+  managedLeaves LeaveRequest[] @relation("ManagerApprovals") // For the manager to see team requests
+}
+
+model LeaveBalance {
+  id         String    @id @default(cuid())
+  employeeId String
+  type       LeaveType
+  balance    Int       @default(0)
+
+  employee Employee @relation(fields: [employeeId], references: [employeeId], onDelete: Cascade)
+
+  @@unique([employeeId, type])
+}
+
+model LeaveRequest {
+  id                 String    @id @default(cuid()) // Kept cuid for ease, but can be managed manually
+  employeeId         String
+  type               LeaveType
+  startDate          DateTime
+  endDate            DateTime
+  status             Status    @default(PENDING)
+  reportingManagerId String
+
+  employee Employee @relation(fields: [employeeId], references: [employeeId])
+  manager  Employee @relation("ManagerApprovals", fields: [reportingManagerId], references: [employeeId])
+}
+
+enum Status {
+  PENDING
+  APPROVED
+  REJECTED
+  CANCELLED
+}
+
+enum EmployeeRole {
+  EMPLOYEE
+  MANAGER
+}
+
+enum LeaveType {
+  CASUAL
+  SICK
+  PRIVILEGE
+}

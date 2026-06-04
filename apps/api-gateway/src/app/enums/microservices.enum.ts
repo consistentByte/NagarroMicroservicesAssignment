@@ -1,0 +1,4 @@
+export enum Microservices {
+  AUTH_MICROSERVICE,
+  LEAVE_MANAGER_MICROSERVICE,
+}
