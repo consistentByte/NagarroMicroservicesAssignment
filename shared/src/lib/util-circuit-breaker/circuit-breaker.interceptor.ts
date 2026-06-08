@@ -22,9 +22,9 @@ export class CircuitBreakerInterceptor implements NestInterceptor {
       // The action must be a function that returns a Promise
       (handler: Observable<any>) => lastValueFrom(handler),
       {
-        timeout: 30000, // trigger failure if service takes more than 8s
-        errorThresholdPercentage: 99,
-        resetTimeout: 60000, // circuit wont close until 12sec
+        timeout: 20000, // trigger failure if service takes more than 8s
+        errorThresholdPercentage: 70,
+        resetTimeout: 12000, // circuit stays open for 12sec
       },
     );
     this.breaker.fallback((error: any) => {
@@ -54,21 +54,13 @@ export class CircuitBreakerInterceptor implements NestInterceptor {
       : 0;
       throw new HttpException(
         {
-          message: `circuit is currently in OPEN state.`,
-          remainingTime: `${Math.round(remainingTime)}s`,
+          message: `circuit is currently in OPEN state. Wait for few mins.`,
+          // remainingTime: `${Math.round(remainingTime)}s`,
           status: 503,
         },
         HttpStatus.SERVICE_UNAVAILABLE,
       );
   }
-
-    if (this.breaker.halfOpen) {
-      return of({
-        status: 'DEGRADED',
-        message: 'System is recovering, please try again in a moment.(HALF-OPEN)',
-        data: null 
-      });
-    }
 
     return from(this.breaker.fire(next.handle()));
   }
