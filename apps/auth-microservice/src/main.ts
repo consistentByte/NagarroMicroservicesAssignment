@@ -12,6 +12,7 @@ async function bootstrap() {
   const portInsideContainer = 3000;
   const portOnHostMachine = 3001; // The port exposed in docker-compose
   const app = await NestFactory.create(AppModule);
+  app.setGlobalPrefix('auth');
 
   const host = process.env.CONSUL_HOST || '127.0.0.1';
   const consul = new Consul({ host: host, port: 8500 });
@@ -28,20 +29,46 @@ async function bootstrap() {
     // address: '127.0.0.1', // since currently auth in docker and gateway in local.
     port: portInsideContainer, // which is mapped in docker
 
+    // check: {
+    //   name: 'auth-service-health',
+    //   // http: `http://host.docker.internal:${portOnHostMachine}/auth/health`,
+    //   http: `http://auth-microservice:${portInsideContainer}/auth/health`,
+    //   interval: '10s',
+    //   timeout: '5s',
+    // },
+
     check: {
       name: 'auth-service-health',
-      // http: `http://host.docker.internal:${portOnHostMachine}/health`,
-      http: `http://auth-microservice:${portInsideContainer}/health`,
-      interval: '10s',
-      timeout: '5s',
+      ttl: '30s',
+      timeout: '10s',
+      deregister_critical_service_after: '1m',
     },
   };
   await consul.agent.service.register(registrationDetails);
 
-  // on close deregister the application
-  process.on('SIGINT', async () => {
-    await consul.agent.service.deregister(instanceId); // pass service to deregister.
-  });
+  setInterval(async () => {
+    try {
+      // This informs Consul that the service is healthy
+      await consul.agent.check.pass(`service:${instanceId}`);
+    } catch (err) {
+      console.error('Auth Service Failed to send heartbeat to Consul:', err);
+    }
+  }, 15000);
+
+
+  const shutdown = async (signal: string) => {
+    console.log(`Received ${signal}. Deregistering from Consul...`);
+    try {
+      await consul.agent.service.deregister(instanceId);
+      console.log('Successfully deregistered.');
+    } catch (err) {
+      console.error('Deregistration failed:', err);
+    }
+    process.exit(0);
+  };
+
+  process.on('SIGTERM', () => shutdown('SIGTERM'));
+  process.on('SIGINT', () => shutdown('SIGINT'));
 
   // Swagger
   const config = new DocumentBuilder()
@@ -51,7 +78,7 @@ async function bootstrap() {
     .build();
 
   const document = SwaggerModule.createDocument(app, config);
-  SwaggerModule.setup('auth/docs', app, document); // Access at /auth/docs
+  SwaggerModule.setup('auth/docs', app, document);
   //
 
   app.useGlobalPipes(

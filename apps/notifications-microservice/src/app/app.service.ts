@@ -19,12 +19,12 @@ export class AppService {
     const employeeMail = `
       --- TO EMPLOYEE ---
       Dear ${msg.employeeName},
-      This is to inform you that your leave has been applied for ${msg.duration} days.
+      This is to inform you that your leave has been applied.
       From ${msg.startDate} to ${msg.endDate}.
       It is in status ${msg.status}, and is sent to your manager ${msg.reportingManagerName} for approval.
       LeaveID: ${msg.leaveId}
       EmployeeID: ${msg.employeeId}
-      Status: ${msg.status}
+      Status: PENDING
       -------------------`;
 
     // 2. Mail log for the Manager
@@ -36,7 +36,7 @@ export class AppService {
       Please Approve/Reject it.
       EmployeeID: ${msg.employeeId}
       LeaveID: ${msg.leaveId}
-      Status: ${msg.status}
+      Status: PENDING
       ------------------`;
 
     this.logger.info(
@@ -56,7 +56,7 @@ export class AppService {
       This is to inform you that your leave has been approved.
       LeaveID: ${msg.leaveId}
       EmployeeID: ${msg.employeeId}
-      Status: ${msg.status}
+      Status: APPROVED
       -------------------`;
 
     this.logger.info('Sent leave approval notification to Employee');
@@ -74,7 +74,7 @@ export class AppService {
       It is in status ${msg.status}, and is sent to your manager ${msg.reportingManagerName} for approval.
       LeaveID: ${msg.leaveId}
       EmployeeID: ${msg.employeeId}
-      Status: ${msg.status}
+      Status: REJECTED
       -------------------`;
 
     this.logger.info('Sent leave rejection notification to Employee');
@@ -91,7 +91,7 @@ export class AppService {
       This is to inform you that your leave has been cancelled.
       LeaveID: ${msg.leaveId}
       EmployeeID: ${msg.employeeId}
-      Status: ${msg.status}
+      Status: CANCELLED
       -------------------`;
     const managerMail = `
       --- TO EMPLOYEE ---
@@ -99,7 +99,7 @@ export class AppService {
       This is to inform you, that your team member has cancelled the leave.
       LeaveID: ${msg.leaveId}
       EmployeeID: ${msg.employeeId}
-      Status: ${msg.status}
+      Status: CANCELLED
       -------------------`;
 
     this.logger.info('Sent leave rejection notification to Employee and Manager');

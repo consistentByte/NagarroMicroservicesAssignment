@@ -227,6 +227,7 @@ export class LeaveManagerService {
   async applyForLeave(
     employeeId: string,
     leaveDetails: { type: LeaveType; startDate: Date; endDate: Date },
+    reason: string
   ) {
     // Fetch Employee and Reporting Manager details
     const employee = await this.prisma.employee.findUnique({
@@ -310,6 +311,7 @@ export class LeaveManagerService {
             startDate: leaveDetails.startDate,
             endDate: leaveDetails.endDate,
             status: 'PENDING',
+            applyreason: reason
           },
         });
       });
@@ -326,6 +328,7 @@ export class LeaveManagerService {
           endDate: leaveDetails.endDate,
           status: response.status,
           duration: duration.toString(),
+          reason: reason
         };
 
         this.notificationRMQClient.emit('leave-apply', msg);
@@ -344,6 +347,7 @@ export class LeaveManagerService {
   async rejectLeaveRequest(
     reportingManagerId: string,
     { leaveId }: ApproveRejectLeaveDto,
+    reason: string
   ) {
     try {
       const response = await this.prisma.leaveRequest.update({
@@ -355,6 +359,7 @@ export class LeaveManagerService {
         },
         data: {
           status: 'REJECTED',
+          rejectreason: reason
         },
       });
 
@@ -381,6 +386,7 @@ export class LeaveManagerService {
               : '',
             type: response.type,
             status: response.status,
+            reason: reason
           };
 
           this.notificationRMQClient.emit('leave-rejected', msg);

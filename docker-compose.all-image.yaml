@@ -2,7 +2,7 @@ services:
   # The Collector: Receives traces from your microservices
   otel-collector:
     image: otel/opentelemetry-collector:latest
-    command: ["--config=/etc/otel-config.yaml"]
+    command: [ "--config=/etc/otel-config.yaml" ]
     volumes:
       - ./otel-config.yaml:/etc/otel-config.yaml
     ports:
@@ -19,8 +19,8 @@ services:
     image: hashicorp/consul:latest
     container_name: consul-server
     ports:
-      - "8500:8500"      # HTTP API and Web UI
-      - "8600:8600/udp"  # DNS server
+      - "8500:8500" # HTTP API and Web UI
+      - "8600:8600/udp" # DNS server
     environment:
       - CONSUL_BIND_INTERFACE=eth0
     volumes:
@@ -53,7 +53,7 @@ services:
     restart: always
     ports:
       - 8080:8080
-  rabbitmq: 
+  rabbitmq:
     image: rabbitmq:3-management
     ports:
       - "5672:5672"
@@ -61,17 +61,14 @@ services:
     environment:
       RABBITMQ_DEFAULT_USER: guest
       RABBITMQ_DEFAULT_PASS: guest
-      RABBITMQ_NODENAME: rabbit@rabbitmq-node
     healthcheck:
-      test: ["CMD", "rabbitmq-diagnostics", "ping"]
+      test: [ "CMD", "rabbitmq-diagnostics", "ping" ]
       interval: 5s
       timeout: 5s
       retries: 5
 
   api-gateway:
-    build:
-      context: .
-      dockerfile: apps/api-gateway/Dockerfile
+    image: consistentbyte/api-gateway:v1
     ports:
       - '3002:3000'
     environment:
@@ -82,11 +79,9 @@ services:
       - consul
 
   auth-microservice:
-    build:
-      context: .
-      dockerfile: apps/auth-microservice/Dockerfile
-    # ports:
-    #   - '3001:3000'
+    image: consistentbyte/auth-microservice:v1
+    ports:
+      - '3001:3000'
     environment:
       OTEL_EXPORTER_OTLP_ENDPOINT: http://otel-collector:4318/v1/traces
       DATABASE_URL: postgresql://postgres:password@auth-db:5432/auth-db
@@ -96,11 +91,9 @@ services:
       - consul
 
   leave-manager-microservice:
-    build:
-      context: .
-      dockerfile: apps/leave-manager-microservice/Dockerfile
-    # ports:
-    #   - '3003:3000'
+    image: consistentbyte/leave-manager-microservice:v1
+    ports:
+      - '3003:3000'
     environment:
       OTEL_EXPORTER_OTLP_ENDPOINT: http://otel-collector:4318/v1/traces
       DATABASE_URL: postgresql://postgres:password@leave-manager-db:5432/lb-db
@@ -111,13 +104,11 @@ services:
       - leave-manager-db
       - consul
       - rabbitmq
-    deploy:
-      replicas: 2
+    # deploy:
+    #   replicas: 2
 
   notifications-microservice:
-    build:
-      context: .
-      dockerfile: apps/notifications-microservice/Dockerfile
+    image: consistentbyte/notifications-microservice:v1
     environment:
       OTEL_EXPORTER_OTLP_ENDPOINT: http://otel-collector:4318/v1/traces
 

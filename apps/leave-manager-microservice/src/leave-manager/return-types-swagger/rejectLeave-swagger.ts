@@ -1,7 +1,7 @@
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
 import { $Enums } from '@prisma/client';
 
-export class ApplyLeaveRecordReturnType {
+export class RejectLeaveRecordReturnType {
   @ApiProperty({
     enum: $Enums.Status,
     description: 'Current status of the leave request',
@@ -40,7 +40,6 @@ export class ApplyLeaveRecordReturnType {
     description: 'Unique identifier for the reporting manager',
   })
   reportingManagerId!: string;
-
 
   @ApiPropertyOptional({
     description: 'reason for the request',

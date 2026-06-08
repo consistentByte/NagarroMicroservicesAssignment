@@ -20,8 +20,7 @@ export class JwtStrategy extends PassportStrategy(Strategy, 'jwt') {
   }
 
   override validate(payload: any) {
-    console.log('Inside JWT Strategy');
-    console.log(payload);
+
     return payload;
     // send user role, and data stored in token as well.
   }

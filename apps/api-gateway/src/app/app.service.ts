@@ -111,7 +111,7 @@ export class AppService {
 
       // If the error is something else (like network timeout), treat as 503
       throw new HttpException(
-        'Service WILL BE AVAILABLE',
+        'Gateway: Service Not Available',
         HttpStatus.BAD_REQUEST,
       );
     }

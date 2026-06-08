@@ -15,17 +15,21 @@ export class AppController {
   @All(['auth', 'auth/*path'])
   async handleProxyForAuthMicroservice(@Req() req: Request) {
     // req.url would be something like '/login'
-    // pass the entire req object to the service
-    console.log('request coming');
     return this.appService.proxyRequestWithLoadBalancing(
       req.url,
       req,
       Microservices.AUTH_MICROSERVICE,
     );
   }
-  @All(['view-balance', 'view-balance/*path', 'leaves', 'leaves/*path'])
+  @All([
+    'view-balance',
+    'view-balance/*path',
+    'leaves',
+    'leaves/*path',
+    'leave-manager',
+    'leave-manager/*path',
+  ])
   async handleProxyForLeaveManagerMicroservice(@Req() req: Request) {
-    console.log('request coming');
     return this.appService.proxyRequestWithLoadBalancing(
       req.url,
       req,

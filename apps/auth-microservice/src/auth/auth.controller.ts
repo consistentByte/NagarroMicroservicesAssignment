@@ -20,7 +20,7 @@ import { AppService } from '../app/app.service';
 import { ApiBody, ApiOkResponse } from '@nestjs/swagger';
 import { JwksRootDto } from './dtos/jwks.dto';
 
-@Controller('auth')
+@Controller()
 export class AuthController {
   constructor(
     private authService: AuthService,

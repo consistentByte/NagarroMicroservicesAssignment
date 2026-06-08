@@ -56,4 +56,8 @@ export class NotificationDataDto {
   @IsString()
   @IsOptional()
   duration?: string;
+
+  @IsString()
+  @IsOptional()
+  reason?: string;
 }

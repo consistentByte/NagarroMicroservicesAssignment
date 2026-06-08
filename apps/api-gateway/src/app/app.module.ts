@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { HttpModule } from '@nestjs/axios';
-import { SharedLoggerModule } from '@org/shared/lib/logger/logger.module';
+import { SharedLoggerModule } from '../../../../shared/src/lib/logger/logger.module';
 import { CircuitBreakerInterceptor } from '../../../../shared/src/lib/util-circuit-breaker/circuit-breaker.interceptor';
 import { APP_INTERCEPTOR } from '@nestjs/core';
 

@@ -28,6 +28,8 @@ import { ApiOkResponse } from '@nestjs/swagger';
 import { PaginatedLeaveResponseReturnType } from './return-types-swagger/getOwnLeaveRequests-swagger';
 import { ApplyLeaveRecordReturnType } from './return-types-swagger/applyLeave-swagger';
 import { ApproveLeaveRecordReturnType } from './return-types-swagger/approveLeave-swagger';
+import { ReasonDto } from './dtos/reason.dto';
+import { RejectLeaveRecordReturnType } from './return-types-swagger/rejectLeave-swagger';
 
 @UseGuards(JwtAuthGuard, RolesGuard)
 @Controller('leaves')
@@ -122,9 +124,15 @@ export class LeaveManagerController {
     if (!user.employeeId) {
       throw new NotFoundException('User Not Valid');
     }
+
+    let reason = '';
+    if(applyLeaveDto.reason) {
+      reason = applyLeaveDto.reason;
+    }
     return this.leaveManagerService.applyForLeave(
       user.employeeId,
       applyLeaveDto,
+      reason
     );
   }
 
@@ -156,7 +164,8 @@ export class LeaveManagerController {
   async rejectLeaveRequest(
     @CurrentUser() user: UserPayload,
     @Query() rejectDto: ApproveRejectLeaveDto,
-  ): Promise<ApproveLeaveRecordReturnType> {
+    @Body() reasonDto: ReasonDto
+  ): Promise<RejectLeaveRecordReturnType> {
     const { leaveId } = rejectDto;
     if (!user.employeeId) {
       throw new NotFoundException('User Not Valid');
@@ -164,11 +173,15 @@ export class LeaveManagerController {
     if (!leaveId) {
       throw new BadRequestException('leaveId must be a valid string');
     }
-    console.log(leaveId);
+    let reason ='';
+    if(reasonDto.reason) {
+      reason = reasonDto.reason;
+    }
 
     return this.leaveManagerService.rejectLeaveRequest(
       user.employeeId,
       rejectDto,
+      reason
     );
   }
 
@@ -186,7 +199,6 @@ export class LeaveManagerController {
     if (!leaveId) {
       throw new BadRequestException('leaveId must be a valid string');
     }
-    console.log(leaveId);
 
     return this.leaveManagerService.cancelLeaveRequest(
       user.employeeId,

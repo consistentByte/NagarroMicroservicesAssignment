@@ -46,6 +46,8 @@ model LeaveRequest {
   endDate            DateTime
   status             Status    @default(PENDING)
   reportingManagerId String
+  applyreason             String    @default("")
+  rejectreason             String    @default("")
 
   employee Employee @relation(fields: [employeeId], references: [employeeId])
   manager  Employee @relation("ManagerApprovals", fields: [reportingManagerId], references: [employeeId])
