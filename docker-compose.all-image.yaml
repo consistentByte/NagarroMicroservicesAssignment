@@ -2,7 +2,7 @@ services:
   # The Collector: Receives traces from your microservices
   otel-collector:
     image: otel/opentelemetry-collector:latest
-    command: [ "--config=/etc/otel-config.yaml" ]
+    command: ["--config=/etc/otel-config.yaml"]
     volumes:
       - ./otel-config.yaml:/etc/otel-config.yaml
     ports:
@@ -19,13 +19,17 @@ services:
     image: hashicorp/consul:latest
     container_name: consul-server
     ports:
-      - "8500:8500" # HTTP API and Web UI
-      - "8600:8600/udp" # DNS server
+      - "8500:8500"      # HTTP API and Web UI
+      - "8600:8600/udp"  # DNS server
     environment:
       - CONSUL_BIND_INTERFACE=eth0
     volumes:
       - consul_data:/consul/data
     restart: always
+    depends_on:
+      rabbitmq:
+        condition: service_healthy  # just to make sure it starts before rest 
+
   auth-db:
     image: postgres
     restart: always
@@ -53,7 +57,7 @@ services:
     restart: always
     ports:
       - 8080:8080
-  rabbitmq:
+  rabbitmq: 
     image: rabbitmq:3-management
     ports:
       - "5672:5672"
@@ -61,8 +65,10 @@ services:
     environment:
       RABBITMQ_DEFAULT_USER: guest
       RABBITMQ_DEFAULT_PASS: guest
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
     healthcheck:
-      test: [ "CMD", "rabbitmq-diagnostics", "ping" ]
+      test: ["CMD", "rabbitmq-diagnostics", "ping"]
       interval: 5s
       timeout: 5s
       retries: 5
@@ -80,8 +86,8 @@ services:
 
   auth-microservice:
     image: consistentbyte/auth-microservice:v1
-    ports:
-      - '3001:3000'
+    # ports:
+    #   - '3001:3000'
     environment:
       OTEL_EXPORTER_OTLP_ENDPOINT: http://otel-collector:4318/v1/traces
       DATABASE_URL: postgresql://postgres:password@auth-db:5432/auth-db
@@ -92,8 +98,8 @@ services:
 
   leave-manager-microservice:
     image: consistentbyte/leave-manager-microservice:v1
-    ports:
-      - '3003:3000'
+    # ports:
+    #   - '3003:3000'
     environment:
       OTEL_EXPORTER_OTLP_ENDPOINT: http://otel-collector:4318/v1/traces
       DATABASE_URL: postgresql://postgres:password@leave-manager-db:5432/lb-db
@@ -104,13 +110,17 @@ services:
       - leave-manager-db
       - consul
       - rabbitmq
-    # deploy:
-    #   replicas: 2
+    deploy:
+      replicas: 1 # more replicas can cause memory issues with rabbitmq as limited memory with docker, but in order to test more can be used remembering this.
 
   notifications-microservice:
     image: consistentbyte/notifications-microservice:v1
     environment:
       OTEL_EXPORTER_OTLP_ENDPOINT: http://otel-collector:4318/v1/traces
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
 
 volumes:
   consul_data:
+  rabbitmq_data:

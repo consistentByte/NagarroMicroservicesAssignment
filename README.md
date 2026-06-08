@@ -1,3 +1,20 @@
+After Cloning the repo, in order to run docker-compose.yaml
+Follow few steps:
+
+1] npm i
+2] npx nx run-many --target=build --projects=@org/api-gateway
+3] npx nx run-many --target=build --projects=@org/notifications-microservice
+4]  npx nx run-many --target=build --projects=@org/leave-manager-microservice
+5] npx nx run-many --target=build --projects=@org/auth-microservice  
+
+then docker-compose up.
+
+Two compose files present:
+    1] docker-compose.yaml (builds the microservices after above steps as it builds from dockerfile of each service)
+    2] docker-compose.all-image.yaml (after cloning simply run docker-compose up and it will run as it runs via service images in dockerhub) ***USE THIS FOR SINGLE COMMAND START
+
+
+
 RAW DATA:
 
 
