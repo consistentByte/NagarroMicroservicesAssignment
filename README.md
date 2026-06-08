@@ -133,35 +133,51 @@ consistentbyte/notifications-microservice:v1
     OR
     b] in docker-compose click on notifications-microservice and see the logs.
 
-5] It is a monorepo, and cross-cutting concerns are added in shared/src.
-    a] in auth/ JWTGuard and JwtStrategy to fetch jwks.json and validate jwt and guard to protect.
-    b] Global Exception Filter
-    c] Pino Logger
-    d] Distributed Tracing via OpenTelemetry setup in tracing.ts
-    e] Circuit breaker based on opossum
+5] 
+## It is a monorepo, and cross-cutting concerns are added in shared/src.
+
+    a. In `auth/`
+
+    * JWTGuard and JwtStrategy to fetch `jwks.json` and validate JWTs
+    * Guard to protect routes
+
+    b. Global Exception Filter
+
+    c. Pino Logger
+
+    d. Distributed Tracing via OpenTelemetry setup in `tracing.ts`
+
+    e. Circuit Breaker based on Opossum
+
+
 
 6] To test circuit breaker 
-    localhost:3002/auth/test/test-breaker
+    a. localhost:3002/auth/test/test-breaker
     
-    SAMPLE RESPONSE:
-    {
-       "statusCode": 503,
-        "timestamp": "2026-06-08T17:07:19.754Z",
-        "message": {
-            "message": "circuit is currently in OPEN state. Wait for few mins.",
-            "status": 503
+    * SAMPLE RESPONSE:
+    *   {
+            "statusCode": 503,
+            "timestamp": "2026-06-08T17:07:19.754Z",
+            "message": {
+                "message": "circuit is currently in OPEN state. Wait for few mins.",
+                "status": 503
+            }
         }
-    }
 
-    Make sure to wait for a few mins.
+    * Make sure to wait for a few mins.
 
-    For better experience in docker desktop, click on api-gateway, and in Logs CTRL+F  =>Search "OPEN",
-    Now wait until HALF-OPEN log arrives, only after then try a health check point on any service, and if success then try other requests,
-    as too many breaks can cause consistency issues or half success responses.
+    * For better experience in docker desktop, click on api-gateway, and in Logs CTRL+F  =>Search "OPEN",
+        Now wait until HALF-OPEN log arrives, only after then try a health check point on any service, and if success then try other requests,
+        as too many breaks can cause consistency issues or half success responses.
 
 7] Files in repo:
-    API_Documentation.pdf
-    MICROSERVICE_Diagram.drawio.html
-    Inter-Service Communication Flow.pdf
-    DEMO_VIDEO_URL.txt
-    NagarroMicroservicesAssignment.postman_collection.json
+    a. API_Documentation.pdf
+
+    b. MICROSERVICE_Diagram.drawio.html
+
+    c. Inter-Service Communication Flow.pdf
+
+    d. DEMO_VIDEO_URL.txt
+
+    e. NagarroMicroservicesAssignment.postman_collection.json
+    
