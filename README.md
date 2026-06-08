@@ -18,6 +18,9 @@ Two compose files present:
     docker compose -f docker-compose.all-image.yaml up 
 
 ## Watch demo video to add mock data to test.
+DEMO_VIDEO_URL.txt
+
+
 
 RAW DATA:
 
@@ -171,6 +174,7 @@ consistentbyte/notifications-microservice:v1
         as too many breaks can cause consistency issues or half success responses.
 
 7] Files in repo:
+    *
     a. API_Documentation.pdf
 
     b. MICROSERVICE_Diagram.drawio.html
@@ -180,4 +184,3 @@ consistentbyte/notifications-microservice:v1
     d. DEMO_VIDEO_URL.txt
 
     e. NagarroMicroservicesAssignment.postman_collection.json
-    
