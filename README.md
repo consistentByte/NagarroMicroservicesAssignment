@@ -1,4 +1,4 @@
-After Cloning the repo, in order to run docker-compose.yaml
+After Cloning the repo, in order to run using docker-compose.yaml file.
 Follow few steps:
 
 1] npm i
@@ -14,6 +14,10 @@ Two compose files present:
     2] docker-compose.all-image.yaml (after cloning simply run docker-compose up and it will run as it runs via service images in dockerhub) ***USE THIS FOR SINGLE COMMAND START
 
 
+## SINGLE COMMAND STARTUP:
+    docker compose -f docker-compose.all-image.yaml up 
+
+## Watch demo video to add mock data to test.
 
 RAW DATA:
 
@@ -68,6 +72,7 @@ Example of request body to apply leave:
 
 
 
+# json based api docs for auth & leaves
 
 http://localhost:3002/auth/docs-json
 
@@ -104,8 +109,59 @@ http://127.0.0.1:3002/leave-manager/leaves/employees
 
 
 
+## Docker Images of Microservices
+
 consistentbyte/api-gateway:v1
 consistentbyte/auth-microservice:v1
 
 consistentbyte/leave-manager-microservice:v1
 consistentbyte/notifications-microservice:v1
+
+
+## Assumptions
+
+1] No signup added assuming users to be added via mock data using adminer and then do testing.
+
+2] Extra functionality: Cancel, employees can cancel their own leaves if they are in pending state.
+
+3] If Role as a Employee required, go to /auth/login and login using employee (EMP-001), and paste the jwt token acquired to the required request.
+
+    If Role as a Manager required, go to /auth/login and login using manager (MGR-002), and paste the jwt token acquired to the required request.
+
+4] To see the notifications logs, 
+    a] docker logs -f <notifications-microservice-container-name>
+    OR
+    b] in docker-compose click on notifications-microservice and see the logs.
+
+5] It is a monorepo, and cross-cutting concerns are added in shared/src.
+    a] in auth/ JWTGuard and JwtStrategy to fetch jwks.json and validate jwt and guard to protect.
+    b] Global Exception Filter
+    c] Pino Logger
+    d] Distributed Tracing via OpenTelemetry setup in tracing.ts
+    e] Circuit breaker based on opossum
+
+6] To test circuit breaker 
+    localhost:3002/auth/test/test-breaker
+    
+    SAMPLE RESPONSE:
+    {
+       "statusCode": 503,
+        "timestamp": "2026-06-08T17:07:19.754Z",
+        "message": {
+            "message": "circuit is currently in OPEN state. Wait for few mins.",
+            "status": 503
+        }
+    }
+
+    Make sure to wait for a few mins.
+
+    For better experience in docker desktop, click on api-gateway, and in Logs CTRL+F  =>Search "OPEN",
+    Now wait until HALF-OPEN log arrives, only after then try a health check point on any service, and if success then try other requests,
+    as too many breaks can cause consistency issues or half success responses.
+
+7] Files in repo:
+    API_Documentation.pdf
+    MICROSERVICE_Diagram.drawio.html
+    Inter-Service Communication Flow.pdf
+    DEMO_VIDEO_URL.txt
+    NagarroMicroservicesAssignment.postman_collection.json
