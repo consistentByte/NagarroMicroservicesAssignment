@@ -1,0 +1,970 @@
+{
+  "info": {
+    "_postman_id": "9511d68c-5821-4b16-916d-b9246f487443",
+    "name": "NagarroMicroservicesAssignment",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "55579250",
+    "_collection_link": "https://go.postman.co/collection/55579250-9511d68c-5821-4b16-916d-b9246f487443?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "localhost:3002/health",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "localhost:3002/health",
+          "host": [
+            "localhost"
+          ],
+          "port": "3002",
+          "path": [
+            "health"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "localhost:3002/health",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "localhost:3002/health",
+              "host": [
+                "localhost"
+              ],
+              "port": "3002",
+              "path": [
+                "health"
+              ]
+            }
+          },
+          "_postman_previewlanguage": null,
+          "header": null,
+          "cookie": [],
+          "body": null
+        }
+      ]
+    },
+    {
+      "name": "localhost:3002/auth/test/health",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "localhost:3002/auth/test/health",
+          "host": [
+            "localhost"
+          ],
+          "port": "3002",
+          "path": [
+            "auth",
+            "test",
+            "health"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "localhost:3002/auth/test/health",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "localhost:3002/auth/test/health",
+              "host": [
+                "localhost"
+              ],
+              "port": "3002",
+              "path": [
+                "auth",
+                "test",
+                "health"
+              ]
+            }
+          },
+          "_postman_previewlanguage": null,
+          "header": null,
+          "cookie": [],
+          "body": null
+        }
+      ]
+    },
+    {
+      "name": "localhost:3002/leave-manager/test/health",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "localhost:3002/leave-manager/test/health",
+          "host": [
+            "localhost"
+          ],
+          "port": "3002",
+          "path": [
+            "leave-manager",
+            "test",
+            "health"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "localhost:3002/leave-manager/test/health",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "localhost:3002/leave-manager/test/health",
+              "host": [
+                "localhost"
+              ],
+              "port": "3002",
+              "path": [
+                "leave-manager",
+                "test",
+                "health"
+              ]
+            }
+          },
+          "_postman_previewlanguage": null,
+          "header": null,
+          "cookie": [],
+          "body": null
+        }
+      ]
+    },
+    {
+      "name": "localhost:3002/leave-manager/test/notifications/health",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "localhost:3002/leave-manager/test/notifications/health",
+          "host": [
+            "localhost"
+          ],
+          "port": "3002",
+          "path": [
+            "leave-manager",
+            "test",
+            "notifications",
+            "health"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "localhost:3002/leave-manager/test/notifications/health",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "localhost:3002/leave-manager/test/notifications/health",
+              "host": [
+                "localhost"
+              ],
+              "port": "3002",
+              "path": [
+                "leave-manager",
+                "test",
+                "notifications",
+                "health"
+              ]
+            }
+          },
+          "_postman_previewlanguage": null,
+          "header": null,
+          "cookie": [],
+          "body": null
+        }
+      ]
+    },
+    {
+      "name": "localhost:3002/auth/login",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    // \"employeeId\":\"MGR-002\",\r\n    \"employeeId\": \"EMP-001\",\r\n    \"password\": \"$2b$10$eI29y3xG7\"       \r\n}\r\n",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "localhost:3002/auth/login",
+          "host": [
+            "localhost"
+          ],
+          "port": "3002",
+          "path": [
+            "auth",
+            "login"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "localhost:3002/auth/login",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    // \"employeeId\":\"MGR-002\",\r\n    \"employeeId\": \"EMP-001\",\r\n    \"password\": \"$2b$10$eI29y3xG7\"       \r\n}\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:3002/auth/login",
+              "host": [
+                "localhost"
+              ],
+              "port": "3002",
+              "path": [
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "_postman_previewlanguage": null,
+          "header": null,
+          "cookie": [],
+          "body": null
+        }
+      ]
+    },
+    {
+      "name": "localhost:3002/auth/jwks.json",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "localhost:3002/auth/jwks.json",
+          "host": [
+            "localhost"
+          ],
+          "port": "3002",
+          "path": [
+            "auth",
+            "jwks.json"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "localhost:3002/auth/jwks.json",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "localhost:3002/auth/jwks.json",
+              "host": [
+                "localhost"
+              ],
+              "port": "3002",
+              "path": [
+                "auth",
+                "jwks.json"
+              ]
+            }
+          },
+          "_postman_previewlanguage": null,
+          "header": null,
+          "cookie": [],
+          "body": null
+        }
+      ]
+    },
+    {
+      "name": "localhost:3002/leave-manager/view-balance",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbXBsb3llZUlkIjoiRU1QLTAwMSIsInJvbGUiOiJFTVBMT1lFRSIsImlhdCI6MTc4MDkyODE3OSwiZXhwIjoxNzgwOTMxNzc5fQ.bsIzS6etKxn1VcY0AoP25RCJtiN6p_fGKkRvgySAL7QtETk9HGE20a5LRm1Lb-UdArjGoayN5UkhbmmrbvHs__RvDlyTUBrmWw5MSHTFdqKajnZJD65hdo2t_oXhxAwDT6D50OF2fmFLlFdz2dMfgkrWFjSPH6Qc-73ugOVS3iKUPn7uX0YFsdMAfgcCG-UB42eu2qBTtpNUAR79IPJ2eRz8jCqBwSrVfrzSLMdUnMdFtImmwkDQs29mvHhcylvXNUdxUnoUClB_WiWXb_-mCWlQ-N5T2JScj5wMByXe1brjXvP4tiFMANVEcHWb-11lhOgnVLFF9sTsKErBl5kiGg",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "localhost:3002/leave-manager/view-balance",
+          "host": [
+            "localhost"
+          ],
+          "port": "3002",
+          "path": [
+            "leave-manager",
+            "view-balance"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "localhost:3002/leave-manager/view-balance",
+          "originalRequest": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbXBsb3llZUlkIjoiRU1QLTAwMSIsInJvbGUiOiJFTVBMT1lFRSIsImlhdCI6MTc4MDkyODE3OSwiZXhwIjoxNzgwOTMxNzc5fQ.bsIzS6etKxn1VcY0AoP25RCJtiN6p_fGKkRvgySAL7QtETk9HGE20a5LRm1Lb-UdArjGoayN5UkhbmmrbvHs__RvDlyTUBrmWw5MSHTFdqKajnZJD65hdo2t_oXhxAwDT6D50OF2fmFLlFdz2dMfgkrWFjSPH6Qc-73ugOVS3iKUPn7uX0YFsdMAfgcCG-UB42eu2qBTtpNUAR79IPJ2eRz8jCqBwSrVfrzSLMdUnMdFtImmwkDQs29mvHhcylvXNUdxUnoUClB_WiWXb_-mCWlQ-N5T2JScj5wMByXe1brjXvP4tiFMANVEcHWb-11lhOgnVLFF9sTsKErBl5kiGg",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "localhost:3002/leave-manager/view-balance",
+              "host": [
+                "localhost"
+              ],
+              "port": "3002",
+              "path": [
+                "leave-manager",
+                "view-balance"
+              ]
+            }
+          },
+          "_postman_previewlanguage": null,
+          "header": null,
+          "cookie": [],
+          "body": null
+        }
+      ]
+    },
+    {
+      "name": "localhost:3002/leave-manager/view-balance?type=CASUAL",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbXBsb3llZUlkIjoiRU1QLTAwMSIsInJvbGUiOiJFTVBMT1lFRSIsImlhdCI6MTc4MDkyODE3OSwiZXhwIjoxNzgwOTMxNzc5fQ.bsIzS6etKxn1VcY0AoP25RCJtiN6p_fGKkRvgySAL7QtETk9HGE20a5LRm1Lb-UdArjGoayN5UkhbmmrbvHs__RvDlyTUBrmWw5MSHTFdqKajnZJD65hdo2t_oXhxAwDT6D50OF2fmFLlFdz2dMfgkrWFjSPH6Qc-73ugOVS3iKUPn7uX0YFsdMAfgcCG-UB42eu2qBTtpNUAR79IPJ2eRz8jCqBwSrVfrzSLMdUnMdFtImmwkDQs29mvHhcylvXNUdxUnoUClB_WiWXb_-mCWlQ-N5T2JScj5wMByXe1brjXvP4tiFMANVEcHWb-11lhOgnVLFF9sTsKErBl5kiGg",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "localhost:3002/leave-manager/view-balance?type=CASUAL",
+          "host": [
+            "localhost"
+          ],
+          "port": "3002",
+          "path": [
+            "leave-manager",
+            "view-balance"
+          ],
+          "query": [
+            {
+              "key": "type",
+              "value": "CASUAL"
+            }
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "localhost:3002/leave-manager/view-balance?type=CASUAL",
+          "originalRequest": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbXBsb3llZUlkIjoiRU1QLTAwMSIsInJvbGUiOiJFTVBMT1lFRSIsImlhdCI6MTc4MDkyODE3OSwiZXhwIjoxNzgwOTMxNzc5fQ.bsIzS6etKxn1VcY0AoP25RCJtiN6p_fGKkRvgySAL7QtETk9HGE20a5LRm1Lb-UdArjGoayN5UkhbmmrbvHs__RvDlyTUBrmWw5MSHTFdqKajnZJD65hdo2t_oXhxAwDT6D50OF2fmFLlFdz2dMfgkrWFjSPH6Qc-73ugOVS3iKUPn7uX0YFsdMAfgcCG-UB42eu2qBTtpNUAR79IPJ2eRz8jCqBwSrVfrzSLMdUnMdFtImmwkDQs29mvHhcylvXNUdxUnoUClB_WiWXb_-mCWlQ-N5T2JScj5wMByXe1brjXvP4tiFMANVEcHWb-11lhOgnVLFF9sTsKErBl5kiGg",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "localhost:3002/leave-manager/view-balance?type=CASUAL",
+              "host": [
+                "localhost"
+              ],
+              "port": "3002",
+              "path": [
+                "leave-manager",
+                "view-balance"
+              ],
+              "query": [
+                {
+                  "key": "type",
+                  "value": "CASUAL"
+                }
+              ]
+            }
+          },
+          "_postman_previewlanguage": null,
+          "header": null,
+          "cookie": [],
+          "body": null
+        }
+      ]
+    },
+    {
+      "name": "localhost:3002/leave-manager/view-balance/employee",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbXBsb3llZUlkIjoiTUdSLTAwMiIsInJvbGUiOiJNQU5BR0VSIiwiaWF0IjoxNzgwOTI4NTY2LCJleHAiOjE3ODA5MzIxNjZ9.i9xb3sj-T_OPYI1L4nYHtMCP6MWIVrw8y1V2i5-mKAaJemjR4xVLSWSpmpkVTLbgkVSZU_1rFfDjRmWz1WWuaLGTgOLzTI9VazNjQJeyFgqC5NZQxMFJlAqE2vLI5m7LP9VCn_BGwmWjr-QMwiCXGMP2_6nYVsowrK92bUtRXMOYzJqnKiKwi3N_Li8H6ztUPow5SiKCPywfB7rACUgincTxWQmxvzeAdG4ZOj-9x8dVGfIxxx_0ERHDorV7eYEek2u6IW1mapcFjzQK5_EjxjomdQxkaG-RvpEhzZeYJDWKCDuurcjqm4Un-1-FAXJFIWP9BDehOiATsUsowojSkQ",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "localhost:3002/leave-manager/view-balance/employee?empId=EMP-001&type=CASUAL",
+          "host": [
+            "localhost"
+          ],
+          "port": "3002",
+          "path": [
+            "leave-manager",
+            "view-balance",
+            "employee"
+          ],
+          "query": [
+            {
+              "key": "empId",
+              "value": "EMP-001"
+            },
+            {
+              "key": "type",
+              "value": "CASUAL"
+            }
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "localhost:3002/leave-manager/view-balance/employee",
+          "originalRequest": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbXBsb3llZUlkIjoiTUdSLTAwMiIsInJvbGUiOiJNQU5BR0VSIiwiaWF0IjoxNzgwOTI4NTY2LCJleHAiOjE3ODA5MzIxNjZ9.i9xb3sj-T_OPYI1L4nYHtMCP6MWIVrw8y1V2i5-mKAaJemjR4xVLSWSpmpkVTLbgkVSZU_1rFfDjRmWz1WWuaLGTgOLzTI9VazNjQJeyFgqC5NZQxMFJlAqE2vLI5m7LP9VCn_BGwmWjr-QMwiCXGMP2_6nYVsowrK92bUtRXMOYzJqnKiKwi3N_Li8H6ztUPow5SiKCPywfB7rACUgincTxWQmxvzeAdG4ZOj-9x8dVGfIxxx_0ERHDorV7eYEek2u6IW1mapcFjzQK5_EjxjomdQxkaG-RvpEhzZeYJDWKCDuurcjqm4Un-1-FAXJFIWP9BDehOiATsUsowojSkQ",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "localhost:3002/leave-manager/view-balance/employee?empId=EMP-001&type=CASUAL",
+              "host": [
+                "localhost"
+              ],
+              "port": "3002",
+              "path": [
+                "leave-manager",
+                "view-balance",
+                "employee"
+              ],
+              "query": [
+                {
+                  "key": "empId",
+                  "value": "EMP-001"
+                },
+                {
+                  "key": "type",
+                  "value": "CASUAL"
+                }
+              ]
+            }
+          },
+          "_postman_previewlanguage": null,
+          "header": null,
+          "cookie": [],
+          "body": null
+        }
+      ]
+    },
+    {
+      "name": "localhost:3002/leave-manager/leaves",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbXBsb3llZUlkIjoiRU1QLTAwMSIsInJvbGUiOiJFTVBMT1lFRSIsImlhdCI6MTc4MDkyODYzNywiZXhwIjoxNzgwOTMyMjM3fQ.Kzfa7cTsS0WmqMxvb9Jue1eR-AR1vX9jf5smnGTY6rnYfJsS3Kf9bcO7C2WQ9d84sMBR4JqNtYHr7PzkSQTAcbjpqx0pTyC6rTloQVv8Yto0vIG77zpMODvaIsFfb70_KlPTKdLh4CSke8RoNgCL_tfR61KsFNWpkg9lqbV-P_OV9CQ5v8olNyEOT1Q1Q2PFZOZgurURpOvLrn7Uf8JEcEsdain3uob9H2zwo_JXSMOJMaijAdoYtGIK7Eiaof-CsLRMmcELUWLYu_xJbHAZC4xKwst9dG0VKpvRSF5YA9MXkg6XQEgAeTREh6eSbrPXmqzmv91JebM4oiTWdX8UhA",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "localhost:3002/leave-manager/leaves",
+          "host": [
+            "localhost"
+          ],
+          "port": "3002",
+          "path": [
+            "leave-manager",
+            "leaves"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "localhost:3002/leave-manager/leaves",
+          "originalRequest": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbXBsb3llZUlkIjoiRU1QLTAwMSIsInJvbGUiOiJFTVBMT1lFRSIsImlhdCI6MTc4MDkyODYzNywiZXhwIjoxNzgwOTMyMjM3fQ.Kzfa7cTsS0WmqMxvb9Jue1eR-AR1vX9jf5smnGTY6rnYfJsS3Kf9bcO7C2WQ9d84sMBR4JqNtYHr7PzkSQTAcbjpqx0pTyC6rTloQVv8Yto0vIG77zpMODvaIsFfb70_KlPTKdLh4CSke8RoNgCL_tfR61KsFNWpkg9lqbV-P_OV9CQ5v8olNyEOT1Q1Q2PFZOZgurURpOvLrn7Uf8JEcEsdain3uob9H2zwo_JXSMOJMaijAdoYtGIK7Eiaof-CsLRMmcELUWLYu_xJbHAZC4xKwst9dG0VKpvRSF5YA9MXkg6XQEgAeTREh6eSbrPXmqzmv91JebM4oiTWdX8UhA",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "localhost:3002/leave-manager/leaves",
+              "host": [
+                "localhost"
+              ],
+              "port": "3002",
+              "path": [
+                "leave-manager",
+                "leaves"
+              ]
+            }
+          },
+          "_postman_previewlanguage": null,
+          "header": null,
+          "cookie": [],
+          "body": null
+        }
+      ]
+    },
+    {
+      "name": "localhost:3002/leave-manager/leaves/employees",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbXBsb3llZUlkIjoiTUdSLTAwMiIsInJvbGUiOiJNQU5BR0VSIiwiaWF0IjoxNzgwOTI5MDMzLCJleHAiOjE3ODA5MzI2MzN9.CXoV7mRPoOLzI9-aMfbKbTKK_s2fN7Zz3hcIiZ1pYwsxWoRIgXF1SwyTP2bp4S34T67J8y1R0ZW1fY8b5dso6iyb-HQnPfTwECSWdeVZ1aOqJJsDUGvXYHX10KRqpc9r-oRizkMnPc2PHcyWBAAYI63i0wrJhSdITW_detp7SCx_0f9NcNXaFUrHG3j7EBizis-vzHKWdQSDkS2_F5px8h2z-O4g8kbtJRJbnSfg2FqZwIvtRUozGYnHu2GV62HQAbkzhV_ytW9OCJdg353p-u0eXLbHwrUWJydkBDke_xsBCogASqHE5dZWbgo3YLlEFjyrOIh06igvFr1naUjM4g",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "localhost:3002/leave-manager/leaves/employees?empId=EMP-001&status=PENDING&page=1&limit=10",
+          "host": [
+            "localhost"
+          ],
+          "port": "3002",
+          "path": [
+            "leave-manager",
+            "leaves",
+            "employees"
+          ],
+          "query": [
+            {
+              "key": "empId",
+              "value": "EMP-001"
+            },
+            {
+              "key": "status",
+              "value": "PENDING"
+            },
+            {
+              "key": "page",
+              "value": "1"
+            },
+            {
+              "key": "limit",
+              "value": "10"
+            }
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "localhost:3002/leave-manager/leaves/employees",
+          "originalRequest": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbXBsb3llZUlkIjoiTUdSLTAwMiIsInJvbGUiOiJNQU5BR0VSIiwiaWF0IjoxNzgwOTI5MDMzLCJleHAiOjE3ODA5MzI2MzN9.CXoV7mRPoOLzI9-aMfbKbTKK_s2fN7Zz3hcIiZ1pYwsxWoRIgXF1SwyTP2bp4S34T67J8y1R0ZW1fY8b5dso6iyb-HQnPfTwECSWdeVZ1aOqJJsDUGvXYHX10KRqpc9r-oRizkMnPc2PHcyWBAAYI63i0wrJhSdITW_detp7SCx_0f9NcNXaFUrHG3j7EBizis-vzHKWdQSDkS2_F5px8h2z-O4g8kbtJRJbnSfg2FqZwIvtRUozGYnHu2GV62HQAbkzhV_ytW9OCJdg353p-u0eXLbHwrUWJydkBDke_xsBCogASqHE5dZWbgo3YLlEFjyrOIh06igvFr1naUjM4g",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "localhost:3002/leave-manager/leaves/employees?empId=EMP-001&status=PENDING&page=1&limit=10",
+              "host": [
+                "localhost"
+              ],
+              "port": "3002",
+              "path": [
+                "leave-manager",
+                "leaves",
+                "employees"
+              ],
+              "query": [
+                {
+                  "key": "empId",
+                  "value": "EMP-001"
+                },
+                {
+                  "key": "status",
+                  "value": "PENDING"
+                },
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "10"
+                }
+              ]
+            }
+          },
+          "_postman_previewlanguage": null,
+          "header": null,
+          "cookie": [],
+          "body": null
+        }
+      ]
+    },
+    {
+      "name": "localhost:3002/leave-manager/leaves/apply",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbXBsb3llZUlkIjoiRU1QLTAwMSIsInJvbGUiOiJFTVBMT1lFRSIsImlhdCI6MTc4MDkyOTM4NywiZXhwIjoxNzgwOTMyOTg3fQ.STk4yqJZzIvc3Oizlz1hGura_Ooibwq_Gl2THgYjRrn-Ob2ltPInarSa8BqdQ0i2uTYti3BBdEBYIgCIGTw9LXFS-j2KygEPGG_4yq3ZR03Ow5yW6Jh6WmFPg9vaqJ_cxcPGXtJ1D5D9tpHwCVPrl3sJN5Y-PVwuT6JqAcwdG-nk1vKE0O7MOkcABVHbWksNv6QqBvBk94gh_CMgUpq9V3vxsMGpH3YyIU4Ycoy81NLRn9LbX6JqtEjHIyr3qgDM2fzlpubywsDwhyKccKAmXPXN0pOnF3-8ZwrTwIieZFgN5QN2v7rXXv8t0rhcyQ_xqBHGgxwWSM1RCoAXR_LCgg",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"type\": \"SICK\",\r\n    \"startDate\": \"2026-06-15\",\r\n    \"endDate\": \"2026-06-15\",\r\n    \"reason\": \"Genuine Reason\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "localhost:3002/leave-manager/leaves/apply",
+          "host": [
+            "localhost"
+          ],
+          "port": "3002",
+          "path": [
+            "leave-manager",
+            "leaves",
+            "apply"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "localhost:3002/leave-manager/leaves/apply",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbXBsb3llZUlkIjoiRU1QLTAwMSIsInJvbGUiOiJFTVBMT1lFRSIsImlhdCI6MTc4MDkyOTM4NywiZXhwIjoxNzgwOTMyOTg3fQ.STk4yqJZzIvc3Oizlz1hGura_Ooibwq_Gl2THgYjRrn-Ob2ltPInarSa8BqdQ0i2uTYti3BBdEBYIgCIGTw9LXFS-j2KygEPGG_4yq3ZR03Ow5yW6Jh6WmFPg9vaqJ_cxcPGXtJ1D5D9tpHwCVPrl3sJN5Y-PVwuT6JqAcwdG-nk1vKE0O7MOkcABVHbWksNv6QqBvBk94gh_CMgUpq9V3vxsMGpH3YyIU4Ycoy81NLRn9LbX6JqtEjHIyr3qgDM2fzlpubywsDwhyKccKAmXPXN0pOnF3-8ZwrTwIieZFgN5QN2v7rXXv8t0rhcyQ_xqBHGgxwWSM1RCoAXR_LCgg",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"type\": \"SICK\",\r\n    \"startDate\": \"2026-06-15\",\r\n    \"endDate\": \"2026-06-15\",\r\n    \"reason\": \"Genuine Reason\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:3002/leave-manager/leaves/apply",
+              "host": [
+                "localhost"
+              ],
+              "port": "3002",
+              "path": [
+                "leave-manager",
+                "leaves",
+                "apply"
+              ]
+            }
+          },
+          "_postman_previewlanguage": null,
+          "header": null,
+          "cookie": [],
+          "body": null
+        }
+      ]
+    },
+    {
+      "name": "localhost:3002/leave-manager/leaves/employees/approve",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbXBsb3llZUlkIjoiTUdSLTAwMiIsInJvbGUiOiJNQU5BR0VSIiwiaWF0IjoxNzgwOTI5MDMzLCJleHAiOjE3ODA5MzI2MzN9.CXoV7mRPoOLzI9-aMfbKbTKK_s2fN7Zz3hcIiZ1pYwsxWoRIgXF1SwyTP2bp4S34T67J8y1R0ZW1fY8b5dso6iyb-HQnPfTwECSWdeVZ1aOqJJsDUGvXYHX10KRqpc9r-oRizkMnPc2PHcyWBAAYI63i0wrJhSdITW_detp7SCx_0f9NcNXaFUrHG3j7EBizis-vzHKWdQSDkS2_F5px8h2z-O4g8kbtJRJbnSfg2FqZwIvtRUozGYnHu2GV62HQAbkzhV_ytW9OCJdg353p-u0eXLbHwrUWJydkBDke_xsBCogASqHE5dZWbgo3YLlEFjyrOIh06igvFr1naUjM4g",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "localhost:3002/leave-manager/leaves/employees/approve?leaveId=cmq5b4dq2000001qmt4sop2vr",
+          "host": [
+            "localhost"
+          ],
+          "port": "3002",
+          "path": [
+            "leave-manager",
+            "leaves",
+            "employees",
+            "approve"
+          ],
+          "query": [
+            {
+              "key": "leaveId",
+              "value": "cmq5b4dq2000001qmt4sop2vr"
+            }
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "localhost:3002/leave-manager/leaves/employees/approve",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbXBsb3llZUlkIjoiTUdSLTAwMiIsInJvbGUiOiJNQU5BR0VSIiwiaWF0IjoxNzgwOTI5MDMzLCJleHAiOjE3ODA5MzI2MzN9.CXoV7mRPoOLzI9-aMfbKbTKK_s2fN7Zz3hcIiZ1pYwsxWoRIgXF1SwyTP2bp4S34T67J8y1R0ZW1fY8b5dso6iyb-HQnPfTwECSWdeVZ1aOqJJsDUGvXYHX10KRqpc9r-oRizkMnPc2PHcyWBAAYI63i0wrJhSdITW_detp7SCx_0f9NcNXaFUrHG3j7EBizis-vzHKWdQSDkS2_F5px8h2z-O4g8kbtJRJbnSfg2FqZwIvtRUozGYnHu2GV62HQAbkzhV_ytW9OCJdg353p-u0eXLbHwrUWJydkBDke_xsBCogASqHE5dZWbgo3YLlEFjyrOIh06igvFr1naUjM4g",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:3002/leave-manager/leaves/employees/approve?leaveId=cmq5b4dq2000001qmt4sop2vr",
+              "host": [
+                "localhost"
+              ],
+              "port": "3002",
+              "path": [
+                "leave-manager",
+                "leaves",
+                "employees",
+                "approve"
+              ],
+              "query": [
+                {
+                  "key": "leaveId",
+                  "value": "cmq5b4dq2000001qmt4sop2vr"
+                }
+              ]
+            }
+          },
+          "_postman_previewlanguage": null,
+          "header": null,
+          "cookie": [],
+          "body": null
+        }
+      ]
+    },
+    {
+      "name": "localhost:3002/leave-manager/leaves/employees/reject",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbXBsb3llZUlkIjoiTUdSLTAwMiIsInJvbGUiOiJNQU5BR0VSIiwiaWF0IjoxNzgwOTI5Njg3LCJleHAiOjE3ODA5MzMyODd9.XQLxXq33dW4YViVK6lG0OVMezC0Mddf98uc6RQv8U2LzrHC6najuxc5mU8IqcWICeBCbwS6Pc11e0TlMl64GPp4JW5g73yJcSchcHdrzE2rDb79abHCUmLDm6WcftAHh7-7PI12Hw_8aAi2wrJGqbBJXNNUdDi8mFUqc1qUXfBTPxRLuBPY6oDbpDqKP_KtEpHBsYoq6bZdtpsuh4MYtvfDtLJ_TwOI0FRxJfwxl_WkmpZWiwzWwqmuh81lGVoDXwbDlk9EJ53o-vkvrEuyrJUjyEC-BSQZ5EypEnLbQ_YtJEmTJI0P3thvvnlOh3gcYKj1sU9zxm6aVsw5veh7_Cg",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "localhost:3002/leave-manager/leaves/employees/reject?leaveId=cmq5bhu93000101qm0ol8ew27",
+          "host": [
+            "localhost"
+          ],
+          "port": "3002",
+          "path": [
+            "leave-manager",
+            "leaves",
+            "employees",
+            "reject"
+          ],
+          "query": [
+            {
+              "key": "leaveId",
+              "value": "cmq5bhu93000101qm0ol8ew27"
+            }
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "localhost:3002/leave-manager/leaves/employees/reject",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbXBsb3llZUlkIjoiTUdSLTAwMiIsInJvbGUiOiJNQU5BR0VSIiwiaWF0IjoxNzgwOTI5Njg3LCJleHAiOjE3ODA5MzMyODd9.XQLxXq33dW4YViVK6lG0OVMezC0Mddf98uc6RQv8U2LzrHC6najuxc5mU8IqcWICeBCbwS6Pc11e0TlMl64GPp4JW5g73yJcSchcHdrzE2rDb79abHCUmLDm6WcftAHh7-7PI12Hw_8aAi2wrJGqbBJXNNUdDi8mFUqc1qUXfBTPxRLuBPY6oDbpDqKP_KtEpHBsYoq6bZdtpsuh4MYtvfDtLJ_TwOI0FRxJfwxl_WkmpZWiwzWwqmuh81lGVoDXwbDlk9EJ53o-vkvrEuyrJUjyEC-BSQZ5EypEnLbQ_YtJEmTJI0P3thvvnlOh3gcYKj1sU9zxm6aVsw5veh7_Cg",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:3002/leave-manager/leaves/employees/reject?leaveId=cmq5bhu93000101qm0ol8ew27",
+              "host": [
+                "localhost"
+              ],
+              "port": "3002",
+              "path": [
+                "leave-manager",
+                "leaves",
+                "employees",
+                "reject"
+              ],
+              "query": [
+                {
+                  "key": "leaveId",
+                  "value": "cmq5bhu93000101qm0ol8ew27"
+                }
+              ]
+            }
+          },
+          "_postman_previewlanguage": null,
+          "header": null,
+          "cookie": [],
+          "body": null
+        }
+      ]
+    },
+    {
+      "name": "localhost:3002/leave-manager/leaves/employees/cancel",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbXBsb3llZUlkIjoiRU1QLTAwMSIsInJvbGUiOiJFTVBMT1lFRSIsImlhdCI6MTc4MDkyOTM4NywiZXhwIjoxNzgwOTMyOTg3fQ.STk4yqJZzIvc3Oizlz1hGura_Ooibwq_Gl2THgYjRrn-Ob2ltPInarSa8BqdQ0i2uTYti3BBdEBYIgCIGTw9LXFS-j2KygEPGG_4yq3ZR03Ow5yW6Jh6WmFPg9vaqJ_cxcPGXtJ1D5D9tpHwCVPrl3sJN5Y-PVwuT6JqAcwdG-nk1vKE0O7MOkcABVHbWksNv6QqBvBk94gh_CMgUpq9V3vxsMGpH3YyIU4Ycoy81NLRn9LbX6JqtEjHIyr3qgDM2fzlpubywsDwhyKccKAmXPXN0pOnF3-8ZwrTwIieZFgN5QN2v7rXXv8t0rhcyQ_xqBHGgxwWSM1RCoAXR_LCgg",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"reason\": \"Test Reason\"}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "localhost:3002/leave-manager/leaves/employees/cancel?leaveId=cmq5bm8nw000001lf7atgncym",
+          "host": [
+            "localhost"
+          ],
+          "port": "3002",
+          "path": [
+            "leave-manager",
+            "leaves",
+            "employees",
+            "cancel"
+          ],
+          "query": [
+            {
+              "key": "leaveId",
+              "value": "cmq5bm8nw000001lf7atgncym"
+            }
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "localhost:3002/leave-manager/leaves/employees/cancel",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbXBsb3llZUlkIjoiRU1QLTAwMSIsInJvbGUiOiJFTVBMT1lFRSIsImlhdCI6MTc4MDkyOTM4NywiZXhwIjoxNzgwOTMyOTg3fQ.STk4yqJZzIvc3Oizlz1hGura_Ooibwq_Gl2THgYjRrn-Ob2ltPInarSa8BqdQ0i2uTYti3BBdEBYIgCIGTw9LXFS-j2KygEPGG_4yq3ZR03Ow5yW6Jh6WmFPg9vaqJ_cxcPGXtJ1D5D9tpHwCVPrl3sJN5Y-PVwuT6JqAcwdG-nk1vKE0O7MOkcABVHbWksNv6QqBvBk94gh_CMgUpq9V3vxsMGpH3YyIU4Ycoy81NLRn9LbX6JqtEjHIyr3qgDM2fzlpubywsDwhyKccKAmXPXN0pOnF3-8ZwrTwIieZFgN5QN2v7rXXv8t0rhcyQ_xqBHGgxwWSM1RCoAXR_LCgg",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"reason\": \"Test Reason\"}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:3002/leave-manager/leaves/employees/cancel?leaveId=cmq5bm8nw000001lf7atgncym",
+              "host": [
+                "localhost"
+              ],
+              "port": "3002",
+              "path": [
+                "leave-manager",
+                "leaves",
+                "employees",
+                "cancel"
+              ],
+              "query": [
+                {
+                  "key": "leaveId",
+                  "value": "cmq5bm8nw000001lf7atgncym"
+                }
+              ]
+            }
+          },
+          "_postman_previewlanguage": null,
+          "header": null,
+          "cookie": [],
+          "body": null
+        }
+      ]
+    }
+  ]
+}
